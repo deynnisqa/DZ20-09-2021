@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -44,8 +45,13 @@ public class AutomationPracticeFormTests {
         $(".react-datepicker__day--025:not(react-datepicker__day--outside-month)").click();
         // Не понимаю как работает Экспас ниже "//div[contains(@aria-label, \"May 25th, 1983\"
 //        $x("//div[contains(@aria-label, \"May 25th, 1983\")]").click();
-        $(".subjects-auto-complete__input").click();
-        $(".subjects-auto-complete__input").setValue("New user");
+//        $(".subjects-auto-complete__input").click();
+//       Не могу вставить текст в Subject
+//        $(".css-1hwfws3").setValue("New user");
+        $("#subjectsInput").setValue("e").pressEnter();
+        $("#hobbies-checkbox-1").click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+//        $(".custom-control-label").click();
 
         $("#userNumber").setValue(userNumber).setValue("New user");
 
