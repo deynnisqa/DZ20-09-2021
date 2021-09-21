@@ -6,8 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class AutomationPracticeFormTests {
@@ -27,6 +26,7 @@ public class AutomationPracticeFormTests {
     String lastName = "Msximov";
     String userEmail = "maxdim@mail.com";
     String userNumber = "9152691452";
+    String Subjects = "New user";
 
         open("/automation-practice-form");
         $("#firstName").setValue(firstName);
@@ -42,7 +42,12 @@ public class AutomationPracticeFormTests {
         // Выбираем селектор. У нас могут быть несколько повторяющиеся числа
         // с помощью not мы отсекаем не нужные.
         $(".react-datepicker__day--025:not(react-datepicker__day--outside-month)").click();
-        $("#userNumber").setValue(userNumber);
+        // Не понимаю как работает Экспас ниже "//div[contains(@aria-label, \"May 25th, 1983\"
+//        $x("//div[contains(@aria-label, \"May 25th, 1983\")]").click();
+        $(".subjects-auto-complete__input").click();
+        $(".subjects-auto-complete__input").setValue("New user");
+
+        $("#userNumber").setValue(userNumber).setValue("New user");
 
     }
 }
