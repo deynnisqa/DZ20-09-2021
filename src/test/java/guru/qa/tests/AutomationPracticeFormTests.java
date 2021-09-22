@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.files.DownloadActions.click;
@@ -26,7 +27,7 @@ public class AutomationPracticeFormTests {
     void fillFormTests() {
     // Определяем строковые переменные для теста
     String firstName = "Dmitry";
-    String lastName = "Msximov";
+    String lastName = "Maximov";
     String userEmail = "maxdim@mail.com";
     String userNumber = "9152691452";
     String Subjects = "New user";
@@ -55,14 +56,18 @@ public class AutomationPracticeFormTests {
 //        $("#hobbies-checkbox-1").click();
 //        $("#hobbies-checkbox-2").click();
 //        $("#hobbies-checkbox-3").click();
-        $$("#hobbiesWrapper label").find(Condition.text("Music")).click();
+        $$("#hobbiesWrapper label").find(text("Music")).click();
 //        $("#hobbiesWrapper").$(byText("Music")).click();
 //        $("#hobbiesWrapper #hobbies-checkbox-2").parent().click();
         $("#uploadPicture").uploadFromClasspath("img/1.png");
         $("#currentAddress").setValue("Moscow. Homovniki 1/17");
         $("#react-select-3-input").setValue("u").pressEnter();
         $("#react-select-4-input").setValue("m").pressEnter();
-        $("#submit").click();
+        $("#submit").scrollTo().click();
+        $(".modal-title").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text("Dmitry Maximov"), text("maxdim@mail.com"), text("male"),
+                text("9152691452"), text("25 May,1983"), text("English"), text("Music"), text("1.png"),
+                text("Moscow. Homovniki 1/17"), text("Uttar Pradesh Merrut"));
 //        $("#closeLargeModal").click();
 
 
