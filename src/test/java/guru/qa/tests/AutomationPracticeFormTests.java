@@ -50,7 +50,7 @@ public class AutomationPracticeFormTests {
 //        $(".css-1hwfws3").setValue("New user");
         $("#subjectsInput").setValue("e").pressEnter();
         $("#hobbies-checkbox-1").click();
-        $("#hobbiesWrapper").$(byText("Reading")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
 //        $(".custom-control-label").click();
 
         $("#userNumber").setValue(userNumber).setValue("New user");
