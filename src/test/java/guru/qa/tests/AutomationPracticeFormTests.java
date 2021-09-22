@@ -18,7 +18,7 @@ public class AutomationPracticeFormTests {
         // Развертываем наш хром на весь экран
         Configuration.startMaximized = true;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.clickViaJs = true;
+ //       Configuration.clickViaJs = true;
 
     }
     // Начало теста
@@ -51,11 +51,20 @@ public class AutomationPracticeFormTests {
 //       Не могу вставить текст в Subject
 //        $(".css-1hwfws3").setValue("New user");
         $("#subjectsInput").setValue("e").pressEnter();
-        $("#hobbies-checkbox-1").click();
-        $("#hobbies-checkbox-2").click();
-        $("#hobbies-checkbox-3").click();
+
+//        $("#hobbies-checkbox-1").click();
+//        $("#hobbies-checkbox-2").click();
+//        $("#hobbies-checkbox-3").click();
+        $$("#hobbiesWrapper label").find(Condition.text("Music")).click();
 //        $("#hobbiesWrapper").$(byText("Music")).click();
 //        $("#hobbiesWrapper #hobbies-checkbox-2").parent().click();
+        $("#uploadPicture").uploadFromClasspath("img/1.png");
+        $("#currentAddress").setValue("Moscow. Homovniki 1/17");
+        $("#react-select-3-input").setValue("u").pressEnter();
+        $("#react-select-4-input").setValue("m").pressEnter();
+        $("#submit").click();
+//        $("#closeLargeModal").click();
+
 
 //        $(".custom-control-label").click();
 
