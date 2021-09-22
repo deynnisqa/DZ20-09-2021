@@ -1,5 +1,6 @@
 package guru.qa.tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,6 +18,7 @@ public class AutomationPracticeFormTests {
         // Развертываем наш хром на весь экран
         Configuration.startMaximized = true;
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.clickViaJs = true;
 
     }
     // Начало теста
@@ -50,7 +52,11 @@ public class AutomationPracticeFormTests {
 //        $(".css-1hwfws3").setValue("New user");
         $("#subjectsInput").setValue("e").pressEnter();
         $("#hobbies-checkbox-1").click();
-        $("#hobbiesWrapper").$(byText("Music")).click();
+        $("#hobbies-checkbox-2").click();
+        $("#hobbies-checkbox-3").click();
+//        $("#hobbiesWrapper").$(byText("Music")).click();
+//        $("#hobbiesWrapper #hobbies-checkbox-2").parent().click();
+
 //        $(".custom-control-label").click();
 
         $("#userNumber").setValue(userNumber).setValue("New user");
